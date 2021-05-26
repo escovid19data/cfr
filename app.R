@@ -18,8 +18,8 @@ period <- paste0("(Actualizado: ",today,")")
 ciii <- readRDS(file = "data/sciii.rds") # %>% filter( province=="Bizkaia") # %>% head(2)
 
 # load data
-print("process edades data")
-print("end process edades data ------------------------")
+# print("process edades data")
+# print("end process edades data ------------------------")
 # ciii <- read.delim("/home/numeroteca/sites/covid19/data/original/spain/isciii_casos_hosp_uci_def_sexo_edad_provres.csv",sep = ",") %>%
 #   # filter( provincia_iso =="SS" ) %>%
 #   mutate (
@@ -100,11 +100,8 @@ print("end process edades data ------------------------")
 #     province = as.factor(province),
 #     grupo_edad = as.character(grupo_edad)
 #   )
-
 # print("--------------finished loading data -------------")
-# 
-# saveRDS(ciii, file = "/home/numeroteca/sites/covid19/apps/casos-muertes-edades/data/sciii.rds")
-# print("load ISCIII")
+# saveRDS(ciii, file = "/home/numeroteca/sites/cfr/data/sciii.rds")
 # ciii <- readRDS(file = "data/sciii.rds") # %>% filter( province=="Sevilla")
 
 # Define UI ----
@@ -177,8 +174,9 @@ ui <- navbarPage(
         p(),
         tags$a(href="https://twitter.com/numeroteca", "Gráficos de @numeroteca."),
         p(),
-        tags$a(href="https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv", "Datos de RENAVE-ISCIII")
-        
+        tags$a(href="https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv", "Datos de RENAVE-ISCIII"),
+        p(),
+        tags$a(href="https://github.com/escovid19data/cfr", "Código disponible")
       ),
       mainPanel(
         width = 10,
