@@ -15,94 +15,94 @@ today <- Sys.Date()
 period <- paste0("(Actualizado: ",today,")")
 
 # data_cases_sp_provinces <- read.delim("https://github.com/montera34/escovid19data/blob/master/data/output/covid19-ccaa-spain_consolidated.csv?raw=true",sep = ",") 
-ciii <- readRDS(file = "data/sciii.rds") # %>% filter( province=="Bizkaia") # %>% head(2)
+# ciii <- readRDS(file = "data/sciii.rds") # %>% filter( province=="Bizkaia") # %>% head(2)
 
 # load data
 # print("process edades data")
 # print("end process edades data ------------------------")
-# ciii <- read.delim("/home/numeroteca/sites/covid19/data/original/spain/isciii_casos_hosp_uci_def_sexo_edad_provres.csv",sep = ",") %>%
-#   # filter( provincia_iso =="SS" ) %>%
-#   mutate (
-#     date = as.Date(as.character(fecha)),
-#     provincia_iso = ifelse ( is.na(provincia_iso), "NA", as.character(provincia_iso) )
-#   ) %>%
-#   mutate(
-#     province =  "",
-#     province = ifelse( provincia_iso == "C", "Coruña, A", province ),
-#     province = ifelse( provincia_iso =="VI", "Araba/Álava", province ),
-#     province = ifelse( provincia_iso =="AB", "Albacete", province ),
-#     province = ifelse( provincia_iso =="A", "Alicante/Alacant", province ),
-#     province = ifelse( provincia_iso =="AL", "Almería", province ),
-#     province = ifelse( provincia_iso =="O", "Asturias", province ),
-#     province = ifelse( provincia_iso =="AV", "Ávila", province ),
-#     province = ifelse( provincia_iso =="BA", "Badajoz", province ),
-#     province = ifelse( provincia_iso =="PM", "Balears, Illes", province ),
-#     province = ifelse( provincia_iso =="B", "Barcelona", province ),
-#     province = ifelse( provincia_iso =="BI", "Bizkaia", province ),
-#     province = ifelse( provincia_iso =="BU", "Burgos", province ),
-#     province = ifelse( provincia_iso =="CC", "Cáceres", province ),
-#     province = ifelse( provincia_iso =="CA", "Cádiz", province ),
-#     province = ifelse( provincia_iso =="S", "Cantabria", province ),
-#     province = ifelse( provincia_iso =="CS", "Castellón/Castelló", province ),
-#     province = ifelse( provincia_iso =="CR", "Ciudad Real", province ),
-#     province = ifelse( provincia_iso =="CO", "Córdoba", province ),
-#     province = ifelse( provincia_iso =="CU", "Cuenca", province ),
-#     province = ifelse( provincia_iso =="SS", "Gipuzkoa", province ),
-#     province = ifelse( provincia_iso =="GI", "Girona", province ),
-#     province = ifelse( provincia_iso =="GR", "Granada", province ),
-#     province = ifelse( provincia_iso =="GU", "Guadalajara", province ),
-#     province = ifelse( provincia_iso =="H", "Huelva", province ),
-#     province = ifelse( provincia_iso =="HU", "Huesca", province ),
-#     province = ifelse( provincia_iso =="J", "Jaén", province ),
-#     province = ifelse( provincia_iso =="LO", "Rioja, La", province ),
-#     province = ifelse( provincia_iso =="GC", "Palmas, Las", province ),
-#     province = ifelse( provincia_iso =="LE", "León", province ),
-#     province = ifelse( provincia_iso =="L", "Lleida", province ),
-#     province = ifelse( provincia_iso =="LU", "Lugo", province ),
-#     province = ifelse( provincia_iso =="M", "Madrid", province ),
-#     province = ifelse( provincia_iso =="MA", "Málaga", province ),
-#     province = ifelse( provincia_iso =="MU", "Murcia", province ),
-#     province = ifelse( provincia_iso =="OR", "Ourense", province ),
-#     province = ifelse( provincia_iso =="P", "Palencia", province ),
-#     province = ifelse( provincia_iso =="PO", "Pontevedra", province ),
-#     province = ifelse( provincia_iso =="SA", "Salamanca", province ),
-#     province = ifelse( provincia_iso =="TF", "Santa Cruz de Tenerife", province ),
-#     province = ifelse( provincia_iso =="SE", "Sevilla", province ),
-#     province = ifelse( provincia_iso =="SG", "Segovia", province ),
-#     province = ifelse( provincia_iso =="SO", "Soria", province ),
-#     province = ifelse( provincia_iso =="T", "Tarragona", province ),
-#     province = ifelse( provincia_iso =="TE", "Teruel", province ),
-#     province = ifelse( provincia_iso =="TO", "Toledo", province ),
-#     province = ifelse( provincia_iso =="V", "Valencia/València", province ),
-#     province = ifelse( provincia_iso =="VA", "Valladolid", province ),
-#     province = ifelse( provincia_iso =="ZA", "Zamora", province ),
-#     province = ifelse( provincia_iso =="Z", "Zaragoza", province ),
-#     province = ifelse( provincia_iso =="CE", "Ceuta", province ),
-#     province = ifelse( provincia_iso =="ML", "Melilla", province ),
-#     province = ifelse( provincia_iso =="NA", "Navarra", province )
-#     # province = ifelse( provincia_iso == "NC", "Navarra", province ), no sé qué es NC
-#   ) %>% filter ( ! provincia_iso == "NC" ) %>% arrange(date) %>% group_by(province,date,grupo_edad) %>%
-#   summarise(
-#     num_casos = sum(replace_na(num_casos,0)),
-#     num_hosp = sum(num_hosp ),
-#     num_uci = sum(num_uci),
-#     num_def = sum( replace_na(num_def,0))
-#   ) %>% ungroup() %>% group_by(province,grupo_edad) %>% mutate (
-#     num_casos_cum = cumsum(num_casos),
-#     num_hosp_cum = cumsum(num_hosp ),
-#     num_uci_cum = cumsum(num_uci),
-#     num_def_cum = cumsum(num_def),
-#     num_casos14 = num_casos_cum - lag(num_casos_cum,14),
-#     # num_hosp = sum(num_hosp ),
-#     # num_uci = sum(num_uci),
-#     num_def14 = num_def_cum - lag(num_def_cum,14),
-# 
-#     province = as.factor(province),
-#     grupo_edad = as.character(grupo_edad)
-#   )
-# print("--------------finished loading data -------------")
-# saveRDS(ciii, file = "/home/numeroteca/sites/cfr/data/sciii.rds")
-# ciii <- readRDS(file = "data/sciii.rds") # %>% filter( province=="Sevilla")
+ciii <- read.delim("/home/numeroteca/sites/covid19/data/original/spain/isciii_casos_hosp_uci_def_sexo_edad_provres.csv",sep = ",") %>%
+  # filter( provincia_iso =="SS" ) %>%
+  mutate (
+    date = as.Date(as.character(fecha)),
+    provincia_iso = ifelse ( is.na(provincia_iso), "NA", as.character(provincia_iso) )
+  ) %>%
+  mutate(
+    province =  "",
+    province = ifelse( provincia_iso == "C", "Coruña, A", province ),
+    province = ifelse( provincia_iso =="VI", "Araba/Álava", province ),
+    province = ifelse( provincia_iso =="AB", "Albacete", province ),
+    province = ifelse( provincia_iso =="A", "Alicante/Alacant", province ),
+    province = ifelse( provincia_iso =="AL", "Almería", province ),
+    province = ifelse( provincia_iso =="O", "Asturias", province ),
+    province = ifelse( provincia_iso =="AV", "Ávila", province ),
+    province = ifelse( provincia_iso =="BA", "Badajoz", province ),
+    province = ifelse( provincia_iso =="PM", "Balears, Illes", province ),
+    province = ifelse( provincia_iso =="B", "Barcelona", province ),
+    province = ifelse( provincia_iso =="BI", "Bizkaia", province ),
+    province = ifelse( provincia_iso =="BU", "Burgos", province ),
+    province = ifelse( provincia_iso =="CC", "Cáceres", province ),
+    province = ifelse( provincia_iso =="CA", "Cádiz", province ),
+    province = ifelse( provincia_iso =="S", "Cantabria", province ),
+    province = ifelse( provincia_iso =="CS", "Castellón/Castelló", province ),
+    province = ifelse( provincia_iso =="CR", "Ciudad Real", province ),
+    province = ifelse( provincia_iso =="CO", "Córdoba", province ),
+    province = ifelse( provincia_iso =="CU", "Cuenca", province ),
+    province = ifelse( provincia_iso =="SS", "Gipuzkoa", province ),
+    province = ifelse( provincia_iso =="GI", "Girona", province ),
+    province = ifelse( provincia_iso =="GR", "Granada", province ),
+    province = ifelse( provincia_iso =="GU", "Guadalajara", province ),
+    province = ifelse( provincia_iso =="H", "Huelva", province ),
+    province = ifelse( provincia_iso =="HU", "Huesca", province ),
+    province = ifelse( provincia_iso =="J", "Jaén", province ),
+    province = ifelse( provincia_iso =="LO", "Rioja, La", province ),
+    province = ifelse( provincia_iso =="GC", "Palmas, Las", province ),
+    province = ifelse( provincia_iso =="LE", "León", province ),
+    province = ifelse( provincia_iso =="L", "Lleida", province ),
+    province = ifelse( provincia_iso =="LU", "Lugo", province ),
+    province = ifelse( provincia_iso =="M", "Madrid", province ),
+    province = ifelse( provincia_iso =="MA", "Málaga", province ),
+    province = ifelse( provincia_iso =="MU", "Murcia", province ),
+    province = ifelse( provincia_iso =="OR", "Ourense", province ),
+    province = ifelse( provincia_iso =="P", "Palencia", province ),
+    province = ifelse( provincia_iso =="PO", "Pontevedra", province ),
+    province = ifelse( provincia_iso =="SA", "Salamanca", province ),
+    province = ifelse( provincia_iso =="TF", "Santa Cruz de Tenerife", province ),
+    province = ifelse( provincia_iso =="SE", "Sevilla", province ),
+    province = ifelse( provincia_iso =="SG", "Segovia", province ),
+    province = ifelse( provincia_iso =="SO", "Soria", province ),
+    province = ifelse( provincia_iso =="T", "Tarragona", province ),
+    province = ifelse( provincia_iso =="TE", "Teruel", province ),
+    province = ifelse( provincia_iso =="TO", "Toledo", province ),
+    province = ifelse( provincia_iso =="V", "Valencia/València", province ),
+    province = ifelse( provincia_iso =="VA", "Valladolid", province ),
+    province = ifelse( provincia_iso =="ZA", "Zamora", province ),
+    province = ifelse( provincia_iso =="Z", "Zaragoza", province ),
+    province = ifelse( provincia_iso =="CE", "Ceuta", province ),
+    province = ifelse( provincia_iso =="ML", "Melilla", province ),
+    province = ifelse( provincia_iso =="NA", "Navarra", province )
+    # province = ifelse( provincia_iso == "NC", "Navarra", province ), no sé qué es NC
+  ) %>% filter ( ! provincia_iso == "NC" ) %>% arrange(date) %>% group_by(province,date,grupo_edad) %>%
+  summarise(
+    num_casos = sum(replace_na(num_casos,0)),
+    num_hosp = sum(num_hosp ),
+    num_uci = sum(num_uci),
+    num_def = sum( replace_na(num_def,0))
+  ) %>% ungroup() %>% group_by(province,grupo_edad) %>% mutate (
+    num_casos_cum = cumsum(num_casos),
+    num_hosp_cum = cumsum(num_hosp ),
+    num_uci_cum = cumsum(num_uci),
+    num_def_cum = cumsum(num_def),
+    num_casos14 = num_casos_cum - lag(num_casos_cum,14),
+    # num_hosp = sum(num_hosp ),
+    # num_uci = sum(num_uci),
+    num_def14 = num_def_cum - lag(num_def_cum,14),
+
+    province = as.factor(province),
+    grupo_edad = as.character(grupo_edad)
+  )
+print("--------------finished loading data -------------")
+saveRDS(ciii, file = "/home/numeroteca/sites/cfr/data/sciii.rds")
+ciii <- readRDS(file = "data/sciii.rds") # %>% filter( province=="Sevilla")
 
 # Define UI ----
 ui <- navbarPage(
