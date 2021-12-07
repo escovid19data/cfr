@@ -1,0 +1,13 @@
+name: casos-muertes-edades
+title: casos-muertes-edades
+username:
+account: numeroteca
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3999080
+bundleId: 4494950
+url: https://numeroteca.shinyapps.io/casos-muertes-edades/
+when: 1618916769.09767
+lastSyncTime: 1618916769.09769
+asMultiple: FALSE
+asStatic: FALSE
